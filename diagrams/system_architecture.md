@@ -8,3 +8,5 @@ Ultrasonic Sensor → Arduino UNO → Distance Processing → Parking Status Out
 3. Arduino calculates distance
 4. Vehicle presence is detected
 5. Parking slot status is displayed
+
+
