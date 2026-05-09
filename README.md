@@ -4,6 +4,8 @@
 ![Language](https://img.shields.io/badge/Language-C++-orange)
 ![Status](https://img.shields.io/badge/Project-Completed-brightgreen)
 
+---
+
 ## Overview
 
 An embedded systems project that demonstrates real-time parking slot monitoring using Arduino UNO and HC-SR04 ultrasonic sensor technology. The system automatically detects vehicle presence and updates parking slot occupancy status based on measured distance.
@@ -93,7 +95,64 @@ If the measured distance is less than the predefined threshold value, the system
 ![Prototype](images/prototype.jpg)
 
 ### Serial Monitor Output
-![Serial Output](images/serial_monitor_output.png)
+![Serial Monitor](images/serial_monitor_output.png)
+
+---
+
+## Source Code
+
+```c
+#define TRIG_PIN 9
+#define ECHO_PIN 10
+
+long duration;
+float distance;
+
+const int thresholdDistance = 15;
+
+void setup() {
+
+    Serial.begin(9600);
+
+    pinMode(TRIG_PIN, OUTPUT);
+    pinMode(ECHO_PIN, INPUT);
+
+    Serial.println("SMART CAR PARKING SYSTEM");
+}
+
+void loop() {
+
+    distance = measureDistance();
+
+    Serial.print("Distance: ");
+    Serial.print(distance);
+    Serial.println(" cm");
+
+    if(distance < thresholdDistance) {
+        Serial.println("STATUS: SLOT OCCUPIED");
+    }
+    else {
+        Serial.println("STATUS: SLOT AVAILABLE");
+    }
+
+    delay(1000);
+}
+
+float measureDistance() {
+
+    digitalWrite(TRIG_PIN, LOW);
+    delayMicroseconds(2);
+
+    digitalWrite(TRIG_PIN, HIGH);
+    delayMicroseconds(10);
+
+    digitalWrite(TRIG_PIN, LOW);
+
+    duration = pulseIn(ECHO_PIN, HIGH);
+
+    return duration * 0.034 / 2;
+}
+```
 
 ---
 
@@ -104,7 +163,7 @@ If the measured distance is less than the predefined threshold value, the system
 3. Connect Arduino UNO
 4. Upload `smart_car_parking_system.ino`
 5. Open Serial Monitor at 9600 baud rate
-6. Test vehicle detection
+6. Test vehicle detection using the ultrasonic sensor
 
 ---
 
@@ -122,7 +181,7 @@ If the measured distance is less than the predefined threshold value, the system
 |-----------|-------|
 | Detection Accuracy | ~95% |
 | Response Time | <1 second |
-| Sensor Range | 2cm – 400cm |
+| Detection Range | 2cm – 400cm |
 | Operating Voltage | 5V |
 
 ---
@@ -179,3 +238,15 @@ arduino-smart-car-parking/
 ├── results/
 ├── LICENSE
 └── README.md
+```
+
+---
+
+## Author
+Kavya R 
+
+---
+
+## License
+
+This project is licensed under the MIT License.
