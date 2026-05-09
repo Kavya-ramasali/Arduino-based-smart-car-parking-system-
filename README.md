@@ -2,6 +2,8 @@ Arduino-Based Smart Car Parking System
 
 An embedded systems project that demonstrates real-time parking slot monitoring using Arduino UNO and ultrasonic sensor technology. The system detects vehicle presence automatically and updates parking occupancy status through distance-based sensing.
 
+--------------
+
 Features
 
 Real-time vehicle detection using HC-SR04
@@ -16,6 +18,7 @@ Modular and beginner-friendly embedded system design
 
 Low-cost hardware implementation
 
+----------------
 
 Tech Stack
 
@@ -25,6 +28,7 @@ Embedded C / Arduino IDE
 
 HC-SR04 Ultrasonic Sensor
 
+-----------------
 
 System Workflow
 
@@ -40,6 +44,7 @@ System Workflow
 4. Parking slot status is updated in real time
 
 
+----------------
 
 Hardware Components
 
@@ -53,6 +58,7 @@ Jumper Wires
 
 Servo Motor (optional)
 
+--------------------
 
 Applications
 
@@ -64,6 +70,7 @@ IoT-based parking solutions
 
 Smart city infrastructure prototypes
 
+---------------------
 
 Future Enhancements
 
@@ -77,6 +84,7 @@ Multi-slot parking management
 
 LCD/OLED display support
 
+---------------
 
 Project Highlights
 
@@ -88,6 +96,7 @@ Clean modular project structure
 
 Suitable for IoT and automation portfolios
 
+------------------ 
 
 Author
 
